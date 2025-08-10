@@ -45,10 +45,10 @@ Without predictive tools to identify and prepare for high-impact events, utiliti
 ---
 
 ## 3. Who This Helps
-- **Utility planners** : Identify weak points and prioritise upgrades.  
-- **Regulators** : Verify resilience and compliance with standards.  
-- **Emergency response teams** : Target high-risk zones for faster restoration.  
-- **Policy-makers & investors** : Direct funding where it prevents the largest losses.
+- Utility planners : Identify weak points and prioritise upgrades.  
+- Regulators : Verify resilience and compliance with standards.  
+- Emergency response teams : Target high-risk zones for faster restoration.  
+- Policy-makers & investors: Direct funding where it prevents the largest losses.
 
 ---
 
@@ -70,7 +70,9 @@ The dataset has been aggregated and correlated with specific events to facilitat
 - Interactive geospatial mapping of outage patterns.
 - Hotspot detection for high-risk states/counties.  
 - Event-type clustering: Weather, Grid Issue, Cyber, Attack, Fuel.
---
+
+---
+
 <h3 align="center">
   <img src="Image/Image2.png" alt="Project Banner" width="1000"/>
 </h3>
@@ -78,14 +80,12 @@ The dataset has been aggregated and correlated with specific events to facilitat
 ---
 
 <h3 align="center">
-  <img src="Image/Image3.png" alt="Project Banner" width="700"/>
+  <img src="Image/Image3.png" alt="Project Banner" width="800"/>
 </h3>
 
 ---
 
-### 5.2 **Predictive Modelling**
-
-#### **Outage Duration & Restoration Time Prediction**
+### 5.2 **Predictive Modelling: Outage Duration & Restoration Time Prediction**
 
 **Approach**
 - **Regression + Classification**  
@@ -142,9 +142,9 @@ The dataset has been aggregated and correlated with specific events to facilitat
 ---
 
 **Business Value**
-- **High recall** supports safety-critical and regulatory goals.  
-- **Manageable false positives** (~25% workload) are acceptable to avoid missed incidents.  
-- **Risk maps** guide faster restoration where impact is highest.
+- High recall supports safety-critical and regulatory goals.  
+- Manageable false positives (~25% workload) are acceptable to avoid missed incidents.  
+- Risk maps guide faster restoration where impact is highest.
 
 **Operational Notes**
 - Threshold fixed at 0.64; review monthly and adjust if recall <0.88 or flagged % shifts ±5%.  
@@ -153,9 +153,7 @@ The dataset has been aggregated and correlated with specific events to facilitat
 
 ---
 
-### 5.3 Customer Impact Prediction
-
-#### Maximum Customers Impacted Prediction
+### 5.3 Predictive Modelling: Maximum Customers Impacted Prediction
 
 **Approach**  
 - Regression to predict the maximum number of customers affected per outage.  
@@ -221,7 +219,7 @@ Predicted means closely align with actuals, indicating good calibration across b
   <img src="Image/Image7.png" alt="Project Banner" width="700"/>
 </h3>
 
----
+
 Higher feature values push predictions upwards, especially for recent large outages, longer durations, and specific Florida counties.
 
 ---
@@ -237,23 +235,23 @@ Higher feature values push predictions upwards, especially for recent large outa
 
 #### Modelling Approach
 
-- **Targeted Coverage:** Analysis focuses on states and event types with highest outage frequency and severity: Texas, California, Michigan, Florida; weather, grid issues, attacks, fuel, and cyber incidents.  
-- **Theme–State Mapping:** Scenarios combine relevant event types and states to reflect regional risk profiles.  
-- **Predictive Models:** XGBoost and Random Forest models predict maximum customers affected and log-transformed outage durations, calibrated for accuracy.  
-- **Risk Banding:** Predictions stratified into operational bands (Critical, Monitor, Routine, Unflagged for customers; Long/Prolonged and Routine for durations) to support prioritisation.
+- Targeted Coverage: Analysis focuses on states and event types with highest outage frequency and severity: Texas, California, Michigan, Florida; weather, grid issues, attacks, fuel, and cyber incidents.  
+- Theme–State Mapping: Scenarios combine relevant event types and states to reflect regional risk profiles.  
+- Predictive Models: XGBoost and Random Forest models predict maximum customers affected and log-transformed outage durations, calibrated for accuracy.  
+- Risk Banding: Predictions stratified into operational bands (Critical, Monitor, Routine, Unflagged for customers; Long/Prolonged and Routine for durations) to support prioritisation.
 
 ---
 
 #### Uncertainty Quantification
 
-- **Bootstrap Analysis:** 1,000 resamples estimate confidence intervals for mean and maximum predicted customers and durations, reflecting model uncertainty.  
-- **Monte Carlo Simulation:** 1,000 iterations of train/test splits capture variability from data sampling and model fit.
+- Bootstrap Analysis: 1,000 resamples estimate confidence intervals for mean and maximum predicted customers and durations, reflecting model uncertainty.  
+- Monte Carlo Simulation: 1,000 iterations of train/test splits capture variability from data sampling and model fit.
 
 ---
 
 #### Key Findings
 
-- **Weather dominates severe outages**, particularly in Florida, Texas, Michigan, and California.  
+- Weather dominates severe outages, particularly in Florida, Texas, Michigan, and California.  
 - Rare, high-impact events (Critical band) cause the majority of customer impact and longest outages (e.g. Florida Critical outages affect up to ~1.8 million customers, lasting up to 111 hours).
   
 <h3 align="left">
@@ -298,8 +296,6 @@ Higher feature values push predictions upwards, especially for recent large outa
 
 ---
 
-#### Summary
-
 - Weather is the primary driver of large, prolonged outages.  
 - Uncertainty quantification reveals significant variability, especially in maximum impact and duration, underscoring the need for robust, flexible emergency plans.  
 - Spatially granular insights enable targeted resilience investments and emergency response.
@@ -307,19 +303,20 @@ Higher feature values push predictions upwards, especially for recent large outa
 ---
 
 ## 6. Recommendations & Conclusion
-Our modelling indicates:
-- Rare, high-impact events drive the majority of outage risk.  
-- Weather-related incidents in FL, TX, MI deserve priority resilience investment.  
-- County-level targeting yields better operational efficiency than state-level planning.
 
-**Recommended Actions:**
-1. Integrate risk bands into operational dashboards.
-2. Run quarterly scenario simulations to test readiness.
-3. Align crew/material allocation with county-level hotspot maps.
-4. Review model thresholds quarterly; adjust if recall <0.88 or flagged rate drifts ±5%.
+## Recommendations
 
-**Final Note:**  
-By combining **prediction, simulation, and uncertainty analysis**, this pipeline enables proactive, data-driven decisions — reducing downtime, improving safety, and optimising resource use.
+- Prioritise where risk is highest.
+- Pre-stage crews, mobile generation, and critical spares in Florida, Texas, and Michigan during peak weather seasons; emphasise Miami-Dade, Broward, Palm Beach, Harris, Tarrant, and Dallas.
+- Use the risk bands to triage work: fast-track “Long + Prolonged” duration predictions and “Critical/Monitor” impact bands for early dispatch.
+- Set operational triggers: keep threshold at 0.64, review monthly; surge staffing when Critical/Monitor volumes or upper confidence bounds spike.
+- Targeted hardening and communications: prioritise vegetation management, sectionalising, and backup power in listed counties; use banded predictions and confidence ranges for proactive Estimated Time of Restoration (ETRs).
+- MLOps: retrain quarterly, track recall ≥ 0.88, monitor drift; integrate real-time weather and asset condition data.
+
+## Conclusion
+
+Weather-driven events in Florida, Texas, and Michigan dominate severe, long-duration outages, with a small share of incidents driving most customer impact. Applying calibrated risk bands, spatial targeting, and uncertainty-aware simulations enables proactive resourcing and faster restoration.
+
 
 ---
 
