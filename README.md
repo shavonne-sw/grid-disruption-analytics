@@ -21,7 +21,8 @@
 
 ---
 
-## **Summary**
+## 1. Summary
+
 This repository delivers an end-to-end analytical pipeline to:
 - **Simulate electrical grid disruptions** under different scenarios.
 - **Classify outages by risk** for proactive prioritisation.
@@ -33,7 +34,7 @@ The project integrates geospatial analysis, rare-event modelling, and scenario-b
 
 ---
 
-## **Problem Statement**
+## 2. Problem Statement
 Electrical grids are increasingly vulnerable to extreme weather, aging infrastructure, and emerging threats such as cyberattacks.  
 A single fault can cascade into large-scale outages, causing safety risks, economic loss, and regulatory breaches.  
 Without predictive tools to identify and prepare for high-impact events, utilities risk:
@@ -43,7 +44,7 @@ Without predictive tools to identify and prepare for high-impact events, utiliti
 
 ---
 
-## **Who This Helps**
+## 3. Who This Helps
 - **Utility planners** : Identify weak points and prioritise upgrades.  
 - **Regulators** : Verify resilience and compliance with standards.  
 - **Emergency response teams** : Target high-risk zones for faster restoration.  
@@ -51,7 +52,7 @@ Without predictive tools to identify and prepare for high-impact events, utiliti
 
 ---
 
-## **Data Sources**
+## 4. Data Sources
 1. **[EAGLE-I Power Outage Dataset (2014–2023)](https://figshare.com/articles/dataset/The_Environment_for_Analysis_of_Geoocated_Energy_Information_s_Recorded_Electricity_Outages_2014-2022/24237376)**  
    County-level outage data at 15-min resolution, 146M+ customer records.
 2. **[DOE-417 Electric Disturbance Reports](https://www.eia.gov/electricity/data/disturbance/disturb_events_archive.html)**  
@@ -63,7 +64,7 @@ The dataset has been aggregated and correlated with specific events to facilitat
 
 ---
 
-## **Methodology Overview**
+## 5. Methodology Overview
 
 ### 5.1 **Exploratory & Spatial Analysis**
 - Interactive geospatial mapping of outage patterns.
@@ -305,7 +306,7 @@ Higher feature values push predictions upwards, especially for recent large outa
 
 ---
 
-## **Recommendations**
+## 6. Recommendations & Conclusion
 Our modelling indicates:
 - Rare, high-impact events drive the majority of outage risk.  
 - Weather-related incidents in FL, TX, MI deserve priority resilience investment.  
