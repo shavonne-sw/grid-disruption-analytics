@@ -147,7 +147,7 @@ The dataset has been aggregated and correlated with specific events to facilitat
 - Risk maps guide faster restoration where impact is highest.
 
 **Operational Notes**
-- Threshold fixed at 0.64; review monthly and adjust if recall <0.88 or flagged % shifts ±5%.  
+- Threshold fixed at 0.64; review regularly and adjust if recall <0.88 or flagged % shifts ±5%.  
 - Monitor KPIs: recall, precision, flagged %, and base rate.
 
 
@@ -309,9 +309,9 @@ Higher feature values push predictions upwards, especially for recent large outa
 - Prioritise where risk is highest.
 - Pre-stage crews, mobile generation, and critical spares in Florida, Texas, and Michigan during peak weather seasons; emphasise Miami-Dade, Broward, Palm Beach, Harris, Tarrant, and Dallas.
 - Use the risk bands to triage work: fast-track “Long + Prolonged” duration predictions and “Critical/Monitor” impact bands for early dispatch.
-- Set operational triggers: keep threshold at 0.64, review monthly; surge staffing when Critical/Monitor volumes or upper confidence bounds spike.
+- Set operational triggers: keep threshold at 0.64, review regularly; surge staffing when Critical/Monitor volumes or upper confidence bounds spike.
 - Targeted hardening and communications: prioritise vegetation management, sectionalising, and backup power in listed counties; use banded predictions and confidence ranges for proactive Estimated Time of Restoration (ETRs).
-- MLOps: retrain quarterly, track recall ≥ 0.88, monitor drift; integrate real-time weather and asset condition data.
+- MLOps: retrain regularly, track recall ≥ 0.88, monitor drift; integrate real-time weather and asset condition data.
 
 ## Conclusion
 
@@ -321,4 +321,5 @@ Weather-driven events in Florida, Texas, and Michigan dominate severe, long-dura
 ---
 
 # Launch notebook
-jupyter notebook Grid_Disruption_Simulation.ipynb
+**[Grid Disruption Simulation, Risk Classification & Customer Impact Analytics.ipynb](./Grid_Disruption_Simulation,_Risk_Classification_&_Customer_Impact_Analytics.ipynb)**
+
